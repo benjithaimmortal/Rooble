@@ -1,5 +1,3 @@
-BankAccounts.rb
-
 module TransactionLimit
 	def transaction_limit?
 		if transaction_limit.nil?
