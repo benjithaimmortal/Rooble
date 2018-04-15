@@ -1,47 +1,60 @@
+# bank_accounts
+
+
+#determines transaction limits
 module TransactionLimit
-	def transaction_limit?
+	def display_transaction_limit
 		if transaction_limit.nil?
-			print "@[transaction_limit] transactions remaining."
+			puts "No transaction limit."
 		else
-			print "No transaction limit."
+			puts "#{transaction_limit} transactions remaining."
 		end
-		puts "Initializing #{self.class.to_s}"
 	end
 end
 
 module Viewer
 	def view_accounts
-		print "@{name} has account number @{auth}. Do you want to know the balance? Y/N"
+		puts "@{name} has account number @{auth}. Do you want to know the balance? Y/N"
 	end
 end
 
 class Account
-	def initialize(name, balance, auth, transaction_limit)
-		@name = client_name
-		@balance = account_balance
-		@auth = account_number
+	include TransactionLimit
+	def initialize(client_name, balance, account_number, transaction_limit)
+		@client_name = client_name
+		@balance = balance
+		@account_number = account_number
 		@transaction_limit = transaction_limit
-		print "Initializing #{self.class.to_s}"
+		puts "Initializing #{self.class.to_s}"
+	end
+	attr_reader	:client_name, :balance, :account_number #, :transaction_limit
+	def transaction_limit
+		puts "Retrieving limit: #{@transaction_limit}"
+		@transaction_limit
 	end
 end
 
 class Checking < Account
-	def initialize(name, balance, auth, transaction_limit = nil)
-		super(name, balance, auth)
-		print "Initializing #{self.class.to_s}"
+	def initialize(client_name, balance, account_number, transaction_limit = nil)
+		super(client_name, balance, account_number, transaction_limit)
+		puts "Initializing #{self.class.to_s}"
 	end
 end
 
 class Savings < Account
-	def initialize(name, balance, auth, transaction_limit = 3)
-		super(name, balance, auth)
-		print "Initializing #{self.class.to_s}"
+	def initialize(client_name, balance, account_number, transaction_limit = 3)
+		super(client_name, balance, account_number, transaction_limit)
+		puts "Initializing #{self.class.to_s}"
 	end
 end
 
 class MoneyMarket < Account
-	def initialize(name, balance, auth, transaction_limit = nil)
-		super(name, balance, auth)
-		print "Initializing #{self.class.to_s}"
+	def initialize(client_name, balance, account_number, transaction_limit = nil)
+		super(client_name, balance, account_number, transaction_limit)
+		puts "Initializing #{self.class.to_s}"
 	end
 end
+
+
+# account = Checking.new ("")
+
