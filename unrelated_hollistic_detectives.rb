@@ -1,12 +1,12 @@
 module Psychics
-	def is_psychic? (psychic)
+	def is_psychic?
 		psychic.nil?
 	end
 end
 
 
 class Characters
-	def initialize(first_name, last_name, job)
+	def initialize(first_name, last_name, job, psychic)
 		@first_name = first_name
 		@last_name = last_name
 		@job = job
