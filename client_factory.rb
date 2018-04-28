@@ -12,9 +12,10 @@ class Client
 		@client_name = "#{@last_name}, #{@first_name}"
 	end
 	def make_client
-		if @account_number.nil?
+		if account_number.nil?
 			@account_number = rand(10000..99999)
-			puts "Account number saved as #{account_number}"
+			puts "New account number created: #{account_number}"
+		else puts "Account number: #{account_number}"
 		end
 		@account_number = "#{account_type}".new(@client_name, @balance, @account_number)
 	end
