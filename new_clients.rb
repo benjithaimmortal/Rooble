@@ -1,34 +1,38 @@
+module Balances	
+	def show_balance
+		puts "#{client_name}'s #{self.class.to_s.downcase} account balance is #{balance_cents}"
+	end
+end
+
+
 class Client
-	def initialize (client_name, investment_dollars, balance_hash, account_number=nil)
+	def initialize (client_name, investment_dollars, balance_cents, account_number=nil)
 		@client_name = client_name
 		@account_number = account_number = rand(10000..99999) if @account_number.nil?
 		@investment_dollars = investment_dollars
-		@balance_hash = balance_hash
+		@balance_cents = balance_cents
 
-		balance_hash.each do |k,v|
+		balance_cents.each do |k,v|
 			@balance_cents = v * @investment_dollars
-			@account_type = k = k.capitalize
-			puts "Hi it's #{balance_cents} money from the block, but I couldn't make a #{k} class :("
-#			account = k.new
+			if k == savings || checking || money_market then [@account = k] else raise NotImplementedError end
+			puts "Hi it's $#{investment_dollars} from the block, but I couldn't transfer to a #{k} class :("
+			self.savings.show_balance
 		end
 	end
 
-#	def savings
-#		@savings = Savings.new(@client_name, @account_number, @balance_cents)
-#	end
-#	def checking
-#		@checking = Checking.new(@client_name, @account_number, @balance_cents)
-#	end
-#	def money_market
-#		@money_market = MoneyMarket.new(@client_name, @account_number, @balance_cents)
-#	end
-
-	def show_balance
-		puts "#{client_name}'s #{account_type} account balance is #{balance_cents}"
+	def savings
+		account = Savings.new(@client_name, @account_number, @investment_dollars)
+	end
+	def checking
+		account = Checking.new(@client_name, @account_number, @investment_dollars)
+	end
+	def money_market
+		account = MoneyMarket.new(@client_name, @account_number, @investment_dollars)
 	end
 end
 
 class Account
+	include Balances
 	def initialize(client_name, account_number, balance_cents, transaction_limit)
 		@client_name = client_name
 		@balance_cents = balance_cents
