@@ -3,28 +3,35 @@
 #next steps: make a class for new transactions, changing the balance
 
 
-module Balances	
+#fix bug: if no Balances show_balance mixin, throws NoSuchAccountType error
+#figure out: how to create a variable inside a block and use it elsewhere
 
+module Balances	
+	def show_balance
+		puts "#{client_name}'s account now has some money"
+	end
 end
 
 
 #name errors
 class NoSuchAccountTypeError < NoMethodError; end
 
-#a client template which produces a client number and appropriate accounts based on percentage of investment
+#a client template which produces a client number and appropriate accounts based on % of investment
 class Client
 	include Balances
 
-	attr_reader :client_name, :balances
+	attr_reader :client_name, :balances, :account_type
 
 	def initialize(client_name, investment_cents, balances, client_number = nil)
 		@client_name = client_name
 		@client_number = client_number.nil? ? rand(10000..99999) : client_number
 		@investment_cents = investment_cents
 		@balances = balances
+		@account_type = nil
 
 		balances.each do |k, v|
 			@balance = (v * @investment_cents) / 100
+			@account_type = k
 			begin
 				self.send("create_#{k.to_s}".to_sym)
 			rescue NoMethodError => nme
