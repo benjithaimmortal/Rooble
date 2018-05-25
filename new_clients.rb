@@ -1,66 +1,93 @@
+#next steps: create a percentage checker, which makes sure all money is vested
+#next steps: create an algorithm which checks decimals and moves them to the appropriate fund
+#next steps: make a class for new transactions, changing the balance
+
+
+#fix bug: if no Balances show_balance mixin, throws NoSuchAccountType error
+#figure out: how to create a variable inside a block and use it elsewhere
+
 module Balances	
 	def show_balance
-		puts "#{client_name}'s #{self.class.to_s.downcase} account balance is #{balance_cents}"
+		puts "#{client_name}'s account now has some money"
 	end
 end
 
 
-class Client
-	def initialize (client_name, investment_dollars, balance_cents, account_number=nil)
-		@client_name = client_name
-		@account_number = account_number = rand(10000..99999) if @account_number.nil?
-		@investment_dollars = investment_dollars
-		@balance_cents = balance_cents
+#name errors
+class NoSuchAccountTypeError < NoMethodError; end
 
-		balance_cents.each do |k,v|
-			@balance_cents = v * @investment_dollars
-			if k == savings || checking || money_market then [@account = k] else raise NotImplementedError end
-			puts "Hi it's $#{investment_dollars} from the block, but I couldn't transfer to a #{k} class :("
-			self.savings.show_balance
+#a client template which produces a client number and appropriate accounts based on % of investment
+class Client
+	include Balances
+
+	attr_reader :client_name, :balances, :account_type
+
+	def initialize(client_name, investment_cents, balances, client_number = nil)
+		@client_name = client_name
+		@client_number = client_number.nil? ? rand(10000..99999) : client_number
+		@investment_cents = investment_cents
+		@balances = balances
+		@account_type = nil
+
+		balances.each do |k, v|
+			@balance = (v * @investment_cents) / 100
+			@account_type = k
+			begin
+				self.send("create_#{k.to_s}".to_sym)
+			rescue NoMethodError => nme
+				puts "Caught #{nme.to_s}"
+				raise NoSuchAccountTypeError.new("Account type #{k.to_s} is not valid. " +
+																						"Valid account types: savings, checking, money_market")
+			end
 		end
 	end
 
-	def savings
-		account = Savings.new(@client_name, @account_number, @investment_dollars)
+	def create_savings
+		@savings = Savings.new(@client_name, @client_number, @balance)
+		@savings.show_balance
 	end
-	def checking
-		account = Checking.new(@client_name, @account_number, @investment_dollars)
+	def create_checking
+		@checking = Checking.new(@client_name, @client_number, @balance)
+		@checking.show_balance
 	end
-	def money_market
-		account = MoneyMarket.new(@client_name, @account_number, @investment_dollars)
+	def create_money_market
+		@money_market = MoneyMarket.new(@client_name, @client_number, @balance)
+		@money_market.show_balance
+	end
+	def show_balance
+		puts "#{client_name}'s #{self.class.to_s.downcase} account is here."
 	end
 end
 
+
+#the basic information that an account requires
 class Account
 	include Balances
-	def initialize(client_name, account_number, balance_cents, transaction_limit)
+	def initialize(client_name, client_number, balance, transaction_limit)
 		@client_name = client_name
-		@balance_cents = balance_cents
-		@account_number = account_number
+		@balance = balance
+		@client_number = client_number
 		@transaction_limit = transaction_limit
 		puts "Initializing #{self.class.to_s}"
 	end
-	attr_reader	:client_name, :balance_cents, :account_number, :transaction_limit
+	attr_reader	:client_name, :balance, :client_number, :transaction_limit
 end
 
 class Checking < Account
-	def initialize(client_name, account_number, balance_cents, transaction_limit = nil)
-		super(client_name, account_number, balance_cents, transaction_limit)
-		puts "Initializing #{self.class.to_s}"
+	def initialize(client_name, client_number, balance, transaction_limit = nil)
+		super(client_name, client_number, balance, transaction_limit)
 	end
 end
 
 class Savings < Account
-	def initialize(client_name, account_number, balance_cents, transaction_limit = 3)
-		super(client_name, account_number, balance_cents, transaction_limit)
-		puts "Initializing #{self.class.to_s}"
+	def initialize(client_name, client_number, balance, transaction_limit = 3)
+		super(client_name, client_number, balance, transaction_limit)
 	end
 end
 
 class MoneyMarket < Account
-	def initialize(client_name, account_number, balance_cents, transaction_limit = nil)
-		super(client_name, account_number, balance_cents, transaction_limit)
-		puts "Initializing #{self.class.to_s}"
+	def initialize(client_name, client_number, balance, transaction_limit = nil)
+		super(client_name, client_number, balance, transaction_limit)
 	end
 end
 
