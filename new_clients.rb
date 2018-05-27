@@ -4,16 +4,18 @@
 
 
 #fix bug: if no Balances show_balance mixin, throws NoSuchAccountType error
-#figure out: how to create a variable inside a block and use it elsewhere
+
+#figure out: where is the @account_type variable and why can't I use it in the mixin??
+#figure out: how to display the balance from a class that is created from a factory
 
 module Balances	
 	def show_balance
-		puts "#{client_name}'s account now has some money"
+		puts "#{client_name}'s #{account_type} account now has #{balance} cents"
 	end
 end
 
 
-#name errors
+#name a new error
 class NoSuchAccountTypeError < NoMethodError; end
 
 #a client template which produces a client number and appropriate accounts based on % of investment
@@ -31,7 +33,6 @@ class Client
 
 		balances.each do |k, v|
 			@balance = (v * @investment_cents) / 100
-			@account_type = k
 			begin
 				self.send("create_#{k.to_s}".to_sym)
 			rescue NoMethodError => nme
@@ -45,17 +46,17 @@ class Client
 	def create_savings
 		@savings = Savings.new(@client_name, @client_number, @balance)
 		@savings.show_balance
+		@account_type = "savings"
 	end
 	def create_checking
 		@checking = Checking.new(@client_name, @client_number, @balance)
 		@checking.show_balance
+		@account_type = "checking"
 	end
 	def create_money_market
 		@money_market = MoneyMarket.new(@client_name, @client_number, @balance)
 		@money_market.show_balance
-	end
-	def show_balance
-		puts "#{client_name}'s #{self.class.to_s.downcase} account is here."
+		@account_type = "money market"
 	end
 end
 
@@ -70,7 +71,7 @@ class Account
 		@transaction_limit = transaction_limit
 		puts "Initializing #{self.class.to_s}"
 	end
-	attr_reader	:client_name, :balance, :client_number, :transaction_limit
+	attr_reader	:client_name, :account_type, :balance, :client_number, :transaction_limit
 end
 
 class Checking < Account
