@@ -6,10 +6,12 @@
 #fix bug: if no Balances show_balance mixin, throws NoSuchAccountType error
 
 #figure out: where is the @account_type variable and why can't I use it in the mixin??
-#figure out: how to display the balance from a class that is created from a factory
+	#answer: the variable was trying to pull itself from the Client class instead of the Account class
+#figure out: how to command/display the balance from a class that is created from a factory
 
 module Balances	
 	def show_balance
+		account_type = self.class.to_s.gsub(/([A-Z])/) {|letter| letter = " #{letter}".downcase }.sub(" ", "")
 		puts "#{client_name}'s #{account_type} account now has #{balance} cents"
 	end
 end
@@ -22,7 +24,7 @@ class NoSuchAccountTypeError < NoMethodError; end
 class Client
 	include Balances
 
-	attr_reader :client_name, :balances, :account_type
+	attr_reader :client_name, :balances
 
 	def initialize(client_name, investment_cents, balances, client_number = nil)
 		@client_name = client_name
@@ -46,17 +48,14 @@ class Client
 	def create_savings
 		@savings = Savings.new(@client_name, @client_number, @balance)
 		@savings.show_balance
-		@account_type = "savings"
 	end
 	def create_checking
 		@checking = Checking.new(@client_name, @client_number, @balance)
 		@checking.show_balance
-		@account_type = "checking"
 	end
 	def create_money_market
 		@money_market = MoneyMarket.new(@client_name, @client_number, @balance)
 		@money_market.show_balance
-		@account_type = "money market"
 	end
 end
 
@@ -71,7 +70,7 @@ class Account
 		@transaction_limit = transaction_limit
 		puts "Initializing #{self.class.to_s}"
 	end
-	attr_reader	:client_name, :account_type, :balance, :client_number, :transaction_limit
+	attr_reader	:client_name, :balance, :client_number, :transaction_limit
 end
 
 class Checking < Account
