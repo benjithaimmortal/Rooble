@@ -9,9 +9,9 @@
 	#answer: the variable was trying to pull itself from the Client class instead of the Account class
 #figure out: how to command/display the balance from a class that is created from a factory
 
-module Balances	
+module Balances
 	def show_balance
-		account_type = self.class.to_s.gsub(/([A-Z])/) {|letter| letter = " #{letter}".downcase }.sub(" ", "")
+		account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
 		puts "#{client_name}'s #{account_type} account now has #{balance} cents"
 	end
 end
