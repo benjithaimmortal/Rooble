@@ -1,4 +1,3 @@
-require_relative './viewer.rb'
 #the basic information that an account has
 class Account
 	include Balances
