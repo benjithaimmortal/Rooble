@@ -22,7 +22,7 @@ class Client
 			rescue NoMethodError => nme
 				puts "Caught #{nme.to_s}"
 				raise NoSuchAccountTypeError.new("Account type #{k.to_s} is not valid. " +
-												"Valid account types: savings, checking, money_market")
+										"Valid account types: savings, checking, money_market")
 			end
 		end
 	end
