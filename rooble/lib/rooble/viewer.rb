@@ -1,5 +1,8 @@
 #defines some functions for viewing and changing things
 
+#restrict balance change if transaction limit is 0, ignore accounts with no limit
+#fix TypeError: String can't be coerced into Integer at line 14
+
 #customer.savings.show_balance
 #"Ben's saving account balance is 3000 cents"
 
@@ -10,7 +13,6 @@ module Balances
 	end
 	def change_balance(amount)
 		@balance = @balance + amount
-		puts amount + " has been adjusted in the account. " + client_name +
-			"'s #{account_type} account balance is #{balance} cents"
+		puts @client_name + "'s #{account_type} account balance is #{balance} cents"
 	end
 end

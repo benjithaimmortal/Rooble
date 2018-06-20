@@ -5,9 +5,6 @@
 class Client
 	include Balances
 
-	attr_reader :client_name, :balances, :account_type
-	attr_accessor :checking, :savings, :money_market
-
 	def initialize(client_name, investment_cents, balances, client_number = nil)
 		@client_name = client_name
 		@client_number = client_number.nil? ? rand(10000..99999) : client_number
@@ -27,6 +24,9 @@ class Client
 		end
 	end
 
+	attr_reader :client_name, :balances, :account_type
+	attr_accessor :checking, :savings, :money_market
+
 	def create_savings
 		@savings = Savings.new(@client_name, @client_number, @balance)
 		@savings.show_balance
@@ -38,8 +38,5 @@ class Client
 	def create_money_market
 		@money_market = MoneyMarket.new(@client_name, @client_number, @balance)
 		@money_market.show_balance
-	end
-	def balance
-		puts savings.balance
 	end
 end
