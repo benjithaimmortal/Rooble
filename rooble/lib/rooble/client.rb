@@ -3,7 +3,7 @@
 #a client template which produces a client number and appropriate accounts based on % of investment
 #customer = Client.new("Ben", 10_000, {savings: 30, checking: 60, money_market: 10})
 class Client
-	include Balances
+	include Viewer
 
 	def initialize(client_name, investment_cents, balances, client_number = nil)
 		@client_name = client_name
