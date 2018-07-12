@@ -29,14 +29,11 @@ class Client
 
 	def create_savings
 		@savings = Savings.new(@client_name, @client_number, @balance)
-		@savings.show_balance
 	end
 	def create_checking
 		@checking = Checking.new(@client_name, @client_number, @balance)
-		@checking.show_balance
 	end
 	def create_money_market
 		@money_market = MoneyMarket.new(@client_name, @client_number, @balance)
-		@money_market.show_balance
 	end
 end

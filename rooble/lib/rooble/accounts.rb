@@ -8,7 +8,6 @@ class Account
 		@transaction_limit = transaction_limit
 		
 		account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
-		puts "Initializing " + account_type
 
 		@account_db = {
             client_number: @client_number,
