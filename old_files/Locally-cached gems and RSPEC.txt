@@ -1,0 +1,8 @@
+Local gems (especially RSPEC) install process:
+1. install bundler by running `gem install bundler`
+2. follow the steps on https://bundler.io/v1.2/bundle_install.html
+    to create local directories vendor/bundle and vendor/cache and save files there
+3. install the RSPEC gem locally to your app by putting it in your local Gemfile:
+        `source "https://rubygems.org"`
+        `gem 'rspec'`
+4. http://rspec.info/ demonstrates how to go from zero to red quickly. Follow that.

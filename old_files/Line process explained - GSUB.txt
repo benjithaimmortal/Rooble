@@ -1,5 +1,3 @@
-
-
 account_type = self.class.to_s.gsub(/([A-Z])/) {|letter| letter = " " + letter.downcase}.sub(" ", "")
 
 `account_type` is a local variable. It is going to be set to the outcome of the following computation.

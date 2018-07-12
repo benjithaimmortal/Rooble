@@ -24,7 +24,7 @@ class Client
 		end
 	end
 
-	attr_reader :client_name, :balances, :account_type
+	attr_reader :client_name, :balances, :account_type, :client_number
 	attr_accessor :checking, :savings, :money_market
 
 	def create_savings
