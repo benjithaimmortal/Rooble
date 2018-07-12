@@ -5,15 +5,8 @@ class Account
 		@client_name = client_name
 		@balance = balance
 		@client_number = client_number
-		@transaction_limit = transaction_limit
-		
-		account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
-
-		@account_db = {
-            client_number: @client_number,
-            client_name: @client_name,
-            balance: @balance
-        }
+		@transaction_limit = transaction_limit		
+		@account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
 	end
 	attr_reader	:client_name, :balance, :client_number, :transaction_limit, :account_db
 end

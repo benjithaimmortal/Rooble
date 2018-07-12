@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem 'rspec'
 
-group :development do
+group :development, :test do
     gem 'guard'
     gem 'guard-rspec'
     gem 'pry'
