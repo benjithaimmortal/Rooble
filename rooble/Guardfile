@@ -25,7 +25,6 @@
 #  * 'just' rspec: 'rspec'
 
 guard :rspec, cmd: "bundle exec rspec" do
-  watch(%r{lib/rooble/(.+)\.rb$}) { "spec/rooble_spec.rb" }
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 
