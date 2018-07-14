@@ -1,8 +1,15 @@
 source "https://rubygems.org"
 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'pry'
+
+#testing
 gem 'rspec'
 gem 'guard'
 gem 'guard-rspec'
-gem 'pry'
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'simplecov'
+
+#converter api
+gem 'money'
+gem 'monetize'
+gem 'google_currency'

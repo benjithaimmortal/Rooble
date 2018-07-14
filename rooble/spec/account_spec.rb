@@ -1,12 +1,12 @@
 require_relative '../lib/rooble.rb'
 
-describe Rooble do
+describe Account do
   #unit tests
   test_percent = rand(1..100)
   client_number = rand(10000..99999)
   test_client = Client.new("Test", 100, {savings: test_percent, checking: (100 - test_percent)}, client_number)
 
-  context "many #accounts" do
+  context "many (#account)s" do
     it "gives correct percentages to each" do
       expect(test_client.savings.balance).to eq (test_percent)
       expect(test_client.checking.balance).to eq (100-test_percent)

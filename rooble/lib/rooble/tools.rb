@@ -3,9 +3,10 @@
 #restrict balance change if transaction limit is 0, ignore accounts with no limit
 #fix TypeError: String can't be coerced into Integer at line 14
 
-#customer.savings.show_balance
+#[customer].savings.show_balance
 #"Ben's saving account balance is 3000 cents"
 
+Money.default_bank = Money::Bank::GoogleCurrency.new
 
 
 module Viewer
@@ -26,3 +27,11 @@ module Viewer
 		self.show_balance
 	end
 end
+
+module Converter	
+	def convert_to(currency)
+    currency = @balance.to_money
+  end
+end
+
+

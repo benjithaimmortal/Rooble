@@ -1,6 +1,6 @@
 require_relative '../lib/rooble.rb'
 
-describe Rooble do
+describe Client do
   #unit tests
   test_percent = rand(1..100)
   client_number = rand(10000..99999)
