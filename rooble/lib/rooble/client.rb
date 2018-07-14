@@ -5,15 +5,16 @@
 class Client
 	include Viewer
 
-	def initialize(client_name, investment_cents, balances, client_number = nil)
+	def initialize(client_name, deposit, balances, client_number = nil)
 		@client_name = client_name
 		@client_number = client_number.nil? ? rand(10000..99999) : client_number
-		@investment_cents = investment_cents
+		@deposit = deposit
 		@balances = balances
 		@account_type = nil
 
 		balances.each do |k, v|
-			@balance = (v * @investment_cents) / 100
+			@balance = (v * @deposit) / 100
+			@balance = Money.new(@balance, "USD")
 			begin
 				self.send("create_#{k.to_s}".to_sym)
 			rescue NoMethodError => nme

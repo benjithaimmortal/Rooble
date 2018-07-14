@@ -11,5 +11,4 @@ gem 'simplecov'
 
 #converter api
 gem 'money'
-gem 'monetize'
 gem 'google_currency'

@@ -1,7 +1,6 @@
 module Rooble
     #exterior api 
     require 'money'
-    require 'monetize'
     require 'money/bank/google_currency'
 
     #path

@@ -3,8 +3,8 @@ class Account
 	include Viewer, Converter
 	def initialize(client_name, client_number, balance, transaction_limit)
 		@client_name = client_name
-		@balance = balance
 		@client_number = client_number
+		@balance = balance
 		@transaction_limit = transaction_limit		
 		@account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
 	end

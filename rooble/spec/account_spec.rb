@@ -8,8 +8,8 @@ describe Account do
 
   context "many (#account)s" do
     it "gives correct percentages to each" do
-      expect(test_client.savings.balance).to eq (test_percent)
-      expect(test_client.checking.balance).to eq (100-test_percent)
+      expect(test_client.savings.balance.cents).to eq (test_percent)
+      expect(test_client.checking.balance.cents).to eq (100-test_percent)
     end
   end
   context "incorrect #account_type?" do
