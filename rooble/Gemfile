@@ -11,4 +11,4 @@ gem 'simplecov'
 
 #converter api
 gem 'money'
-gem 'google_currency'
+gem 'eu_central_bank'

@@ -1,7 +1,7 @@
 module Rooble
     #exterior api 
     require 'money'
-    require 'money/bank/google_currency'
+    require 'eu_central_bank'
 
     #path
     require_relative './rooble/tools.rb'

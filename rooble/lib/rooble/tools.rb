@@ -5,8 +5,8 @@
 
 #[customer].savings.show_balance
 #"Ben's saving account balance is 3000 cents"
-Money::Bank::GoogleCurrency.ttl_in_seconds = 86400
-Money.default_bank = Money::Bank::GoogleCurrency.new
+eu_bank = EuCentralBank.new
+Money.default_bank = eu_bank
 
 
 module Viewer
@@ -30,9 +30,8 @@ end
 
 module Converter	
 	def convert_to(currency)
-		
-		
+		eu_bank.update_rates
+		eu_bank.exchange_with(@balance, currency)
+		self.show_balance
   end
 end
-
-
