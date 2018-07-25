@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-07-13T20:22:54+09:00">2018-07-13T20:22:54+09:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-07-22T11:03:17+09:00">2018-07-22T11:03:17+09:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.0%</span></span>
+    (<span class="covered_percent"><span class="green">92.96%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.5
+         1.15
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>5</b> files in total.
-    <b>75</b> relevant lines. 
-    <span class="green"><b>72</b> lines covered</span> and
-    <span class="red"><b>3</b> lines missed </span>
+    <b>71</b> relevant lines. 
+    <span class="green"><b>66</b> lines covered</span> and
+    <span class="red"><b>5</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -61,6 +61,16 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#e6c9fc53332cc92d95af648da97c74e1d0649c61" class="src_link" title="lib/rooble/account_manager.rb">lib/rooble/account_manager.rb</a></td>
+        <td class="green strong">90.91 %</td>
+        <td>28</td>
+        <td>11</td>
+        <td>10</td>
+        <td>1</td>
+        <td>1.5</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#f423220e87b971bc8b3407b01a79e8a058dc1acc" class="src_link" title="lib/rooble/accounts.rb">lib/rooble/accounts.rb</a></td>
         <td class="green strong">94.44 %</td>
         <td>30</td>
@@ -72,32 +82,22 @@
       
       <tr>
         <td class="strong"><a href="#a27b70be7f8dd99ea002ae106c6058103fe4630f" class="src_link" title="lib/rooble/client.rb">lib/rooble/client.rb</a></td>
-        <td class="green strong">95.45 %</td>
+        <td class="yellow strong">86.36 %</td>
         <td>39</td>
         <td>22</td>
-        <td>21</td>
-        <td>1</td>
-        <td>1.5</td>
+        <td>19</td>
+        <td>3</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#295c9aba698818c2325a8b874bba9818bb6a05b6" class="src_link" title="lib/rooble/viewer.rb">lib/rooble/viewer.rb</a></td>
-        <td class="green strong">90.91 %</td>
-        <td>28</td>
-        <td>11</td>
-        <td>10</td>
-        <td>1</td>
-        <td>2.4</td>
-      </tr>
-      
-      <tr>
-        <td class="strong"><a href="#10390160ada91b0334b4d374aaa65672d3be3d3f" class="src_link" title="spec/accounts_spec.rb">spec/accounts_spec.rb</a></td>
+        <td class="strong"><a href="#c82f81d7da2ad29adca04066bbe9dd8efa7c0f70" class="src_link" title="spec/rooble_spec.rb">spec/rooble_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>29</td>
-        <td>18</td>
-        <td>18</td>
+        <td>22</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>1.0</td>
       </tr>
       
     </tbody>
@@ -139,7 +139,7 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">    require_relative &#39;./rooble/viewer.rb&#39;</code>
+          <code class="ruby">    require_relative &#39;./rooble/account_manager.rb&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
@@ -183,6 +183,193 @@
 </div>
 
       
+        <div class="source_table" id="e6c9fc53332cc92d95af648da97c74e1d0649c61">
+  <div class="header">
+    <h3>lib/rooble/account_manager.rb</h3>
+    <h4><span class="green">90.91 %</span> covered</h4>
+    <div>
+      <b>11</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="never" data-hits="" data-linenumber="1">
+          
+          
+          <code class="ruby">#defines some functions for viewing and changing things</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby">#restrict balance change if transaction limit is 0, ignore accounts with no limit</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">#fix TypeError: String can&#39;t be coerced into Integer at line 14</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">#customer.savings.show_balance</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">#&quot;Ben&#39;s saving account balance is 3000 cents&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module AccountManager</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def show_balance</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="13">
+          <span class="hits">4</span>
+          
+          <code class="ruby">		account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = &quot; #{letter}&quot;.downcase}.sub(&quot; &quot;, &quot;&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
+          
+          <code class="ruby">		puts &quot;#{client_name}&#39;s #{account_type} account balance is #{balance} cents&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def change_balance(amount)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
+          
+          <code class="ruby">		case @transaction_limit</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">		when 0</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
+          
+          <code class="ruby">			raise TransactionLimitError.new(&quot;Transaction limit has been reached.&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">		when Integer</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			@transaction_limit -= 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			@balance = @balance + amount</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">		else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			@balance = @balance + amount</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
+          
+          <code class="ruby">		self.show_balance</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
         <div class="source_table" id="f423220e87b971bc8b3407b01a79e8a058dc1acc">
   <div class="header">
     <h3>lib/rooble/accounts.rb</h3>
@@ -212,7 +399,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">	include Viewer</code>
+          <code class="ruby">	include AccountManager</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -385,11 +572,11 @@
         <div class="source_table" id="a27b70be7f8dd99ea002ae106c6058103fe4630f">
   <div class="header">
     <h3>lib/rooble/client.rb</h3>
-    <h4><span class="green">95.45 %</span> covered</h4>
+    <h4><span class="yellow">86.36 %</span> covered</h4>
     <div>
       <b>22</b> relevant lines. 
-      <span class="green"><b>21</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>19</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -429,7 +616,7 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">	include Viewer</code>
+          <code class="ruby">	include AccountManager</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -444,32 +631,32 @@
           <code class="ruby">	def initialize(client_name, investment_cents, balances, client_number = nil)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
           
           <code class="ruby">		@client_name = client_name</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
           
           <code class="ruby">		@client_number = client_number.nil? ? rand(10000..99999) : client_number</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
           
           <code class="ruby">		@investment_cents = investment_cents</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="12">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
           <code class="ruby">		@balances = balances</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
           <code class="ruby">		@account_type = nil</code>
         </li>
@@ -480,26 +667,26 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="15">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
           
           <code class="ruby">		balances.each do |k, v|</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="16">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">			@balance = (v * @investment_cents) / 100</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="17">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
           
           <code class="ruby">			begin</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="18">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
           
           <code class="ruby">				self.send(&quot;create_#{k.to_s}&quot;.to_sym)</code>
         </li>
@@ -510,14 +697,14 @@
           <code class="ruby">			rescue NoMethodError =&gt; nme</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
           
           <code class="ruby">				puts &quot;Caught #{nme.to_s}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
           
           <code class="ruby">				raise NoSuchAccountTypeError.new(&quot;Account type #{k.to_s} is not valid. &quot; +</code>
         </li>
@@ -635,200 +822,13 @@
 </div>
 
       
-        <div class="source_table" id="295c9aba698818c2325a8b874bba9818bb6a05b6">
+        <div class="source_table" id="c82f81d7da2ad29adca04066bbe9dd8efa7c0f70">
   <div class="header">
-    <h3>lib/rooble/viewer.rb</h3>
-    <h4><span class="green">90.91 %</span> covered</h4>
-    <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>10</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="never" data-hits="" data-linenumber="1">
-          
-          
-          <code class="ruby">#defines some functions for viewing and changing things</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="2">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="3">
-          
-          
-          <code class="ruby">#restrict balance change if transaction limit is 0, ignore accounts with no limit</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby">#fix TypeError: String can&#39;t be coerced into Integer at line 14</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="5">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby">#customer.savings.show_balance</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">#&quot;Ben&#39;s saving account balance is 3000 cents&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
-          
-          <code class="ruby">module Viewer</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	def show_balance</code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="13">
-          <span class="hits">6</span>
-          
-          <code class="ruby">		account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = &quot; #{letter}&quot;.downcase}.sub(&quot; &quot;, &quot;&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="14">
-          <span class="hits">3</span>
-          
-          <code class="ruby">		puts &quot;#{client_name}&#39;s #{account_type} account balance is #{balance} cents&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	def change_balance(amount)</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="17">
-          <span class="hits">4</span>
-          
-          <code class="ruby">		case @transaction_limit</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">		when 0</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
-          
-          <code class="ruby">			raise TransactionLimitError.new(&quot;Transaction limit has been reached.&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">		when Integer</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="21">
-          <span class="hits">3</span>
-          
-          <code class="ruby">			@transaction_limit -= 1</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="22">
-          <span class="hits">3</span>
-          
-          <code class="ruby">			@balance = @balance + amount</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">		else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="24">
-          
-          
-          <code class="ruby">			@balance = @balance + amount</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="26">
-          <span class="hits">3</span>
-          
-          <code class="ruby">		self.show_balance</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="28">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-
-      
-        <div class="source_table" id="10390160ada91b0334b4d374aaa65672d3be3d3f">
-  <div class="header">
-    <h3>spec/accounts_spec.rb</h3>
+    <h3>spec/rooble_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>18</b> relevant lines. 
-      <span class="green"><b>18</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -857,55 +857,55 @@
         <li class="never" data-hits="" data-linenumber="4">
           
           
-          <code class="ruby">  #unit tests</code>
+          <code class="ruby">  #acceptance test</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">  test_percent = rand(1..100)</code>
+          <code class="ruby">  context &quot;#User John Example&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  client_number = rand(10000..99999)</code>
+          <code class="ruby">    john_example = Client.new(&quot;John Example&quot;, 100_000, {savings: 70, checking: 30})</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  test_client = Client.new(&quot;Test&quot;, 100, {savings: test_percent, checking: (100 - test_percent)}, client_number)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &quot;saves #user&quot; do</code>
+        </li>
+      
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">  context &quot;many #accounts&quot; do</code>
+          <code class="ruby">      expect(john_example.client_name).to eq &quot;John Example&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;gives correct percentages to each&quot; do</code>
+          <code class="ruby">      expect(john_example.savings.balance).to eq 70000</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(test_client.savings.balance).to eq (test_percent)</code>
+          <code class="ruby">      expect(john_example.balances.class).to eq Hash</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(test_client.checking.balance).to eq (100-test_percent)</code>
+          <code class="ruby">      expect(john_example.client_number.class).to eq Integer</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -914,97 +914,55 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    it &quot;computes deposits and withdrawals&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">  context &quot;incorrect #account_type?&quot; do</code>
+          <code class="ruby">      john_example.savings.change_balance(30000)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;.NoSuchAccountTypeError&quot; do</code>
+          <code class="ruby">      expect(john_example.savings.balance).to eq 100000</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="17">
           
-          <code class="ruby">      expect{ test_client2 = Client.new(&quot;name&quot;, 100, {saving: 100}) }.to raise_error(NoSuchAccountTypeError)</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      john_example.checking.change_balance(-100)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(john_example.checking.balance).to eq 29900</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  context &quot;transaction_limit?&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;counts down&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="22">
-          <span class="hits">4</span>
-          
-          <code class="ruby">      3.times { test_client.savings.change_balance(100) }</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(test_client.savings.transaction_limit).to eq 0</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;0? .TransactionLimitError&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="26">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      expect { test_client.savings.change_balance(100) }.to raise_error(TransactionLimitError)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="28">
-          
-          
-          <code class="ruby">  end  </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">end</code>

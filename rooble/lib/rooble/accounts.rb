@@ -1,6 +1,6 @@
 #the basic information that an account has
 class Account
-	include Viewer
+	include AccountManager
 	def initialize(client_name, client_number, balance, transaction_limit)
 		@client_name = client_name
 		@balance = balance

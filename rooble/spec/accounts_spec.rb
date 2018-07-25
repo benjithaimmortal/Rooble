@@ -25,5 +25,5 @@ describe Rooble do
     it "0? .TransactionLimitError" do
       expect { test_client.savings.change_balance(100) }.to raise_error(TransactionLimitError)
     end
-  end  
+  end
 end

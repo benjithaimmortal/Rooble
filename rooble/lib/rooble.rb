@@ -1,5 +1,5 @@
 module Rooble
-    require_relative './rooble/viewer.rb'
+    require_relative './rooble/account_manager.rb'
     require_relative './rooble/accounts.rb'
     require_relative './rooble/client.rb'
 end

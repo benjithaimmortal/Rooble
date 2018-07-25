@@ -8,7 +8,7 @@
 
 
 
-module Viewer
+module AccountManager
 	def show_balance
 		account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
 		puts "#{client_name}'s #{account_type} account balance is #{balance} cents"
