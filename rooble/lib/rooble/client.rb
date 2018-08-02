@@ -10,15 +10,16 @@
 class Client
 	include AccountManager
 
-	attr_reader :client_demos, :balances, :account_type, :client_number
+	attr_reader :client_demos, :investment_ratio, :account_type, :client_number
 	attr_accessor :checking, :savings, :money_market
 
 	def initialize(args)
 		@client_demos 		= args[:client_demos]
 		@client_number 		= args[:client_number].nil? ? rand(10000..99999) : args[:client_number]
 		@investment_cents = args[:investment_cents]
+		@investment_ratio	= args[:investment_ratio]
 
-		args[:balances].each do |k, v|
+		@investment_ratio.each do |k, v|
 			@balance = (v * @investment_cents) / 100
 			begin
 				self.send("create_#{k.to_s}".to_sym)

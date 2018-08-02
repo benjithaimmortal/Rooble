@@ -7,7 +7,7 @@ describe Rooble do
       Client.new({
         client_demos: "John Example",
         investment_cents: 100_000, 
-        balances: {savings: 70, checking: 30}
+        investment_ratio: {savings: 70, checking: 30}
       })
     }
 
