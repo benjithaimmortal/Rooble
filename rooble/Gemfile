@@ -1,9 +1,15 @@
 source "https://rubygems.org"
 
-gem 'rspec'
-gem 'guard'
-gem 'guard-rspec'
 gem 'pry'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-gem 'simplecov'
-gem "factory_bot"
+gem 'money'
+gem 'nokogiri'
+gem 'money-open-exchange-rates'
+
+group :test, :development do
+  gem 'rspec'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'simplecov'
+  gem "factory_bot"
+end

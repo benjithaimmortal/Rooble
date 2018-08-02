@@ -1,0 +1,11 @@
+Rooble is a bank accounting gem, soon to hold cash in RubyMoney format and support cash transfers with database integration from the European World Bank.
+
+There are three account types: checking, savings, and money market. If another account type is used, the system will throw an error.
+
+Use the following format to create a new client. For the initial investment, Rooble automatically assigns percentages of the investment to accounts you wish to create.
+
+[variable] = Client.new({
+  client_demos: {},
+  investment_cents: (),
+  balances: {checking: , savings: , money_market: }
+})

@@ -1,18 +1,24 @@
 #next steps: create a percentage checker, which makes sure all money is vested
 
 #a client template which produces a client number and appropriate accounts based on % of investment
-#customer = Client.new("Ben", 10_000, {savings: 30, checking: 60, money_market: 10})
+# example = Client.new({
+# 	client_demos: "Ben",
+# 	investment_cents: 10_000,
+# 	balances: {savings: 30, checking: 60, money_market: 10}
+# })
+
 class Client
 	include AccountManager
 
-	def initialize(client_name, investment_cents, balances, client_number = nil)
-		@client_name = client_name
-		@client_number = client_number.nil? ? rand(10000..99999) : client_number
-		@investment_cents = investment_cents
-		@balances = balances
-		@account_type = nil
+	attr_reader :client_demos, :balances, :account_type, :client_number
+	attr_accessor :checking, :savings, :money_market
 
-		balances.each do |k, v|
+	def initialize(args)
+		@client_demos 		= args[:client_demos]
+		@client_number 		= args[:client_number].nil? ? rand(10000..99999) : args[:client_number]
+		@investment_cents = args[:investment_cents]
+
+		args[:balances].each do |k, v|
 			@balance = (v * @investment_cents) / 100
 			begin
 				self.send("create_#{k.to_s}".to_sym)
@@ -24,16 +30,13 @@ class Client
 		end
 	end
 
-	attr_reader :client_name, :balances, :account_type, :client_number
-	attr_accessor :checking, :savings, :money_market
-
 	def create_savings
-		@savings = Savings.new(@client_name, @client_number, @balance)
+		@savings 			= Savings.new({client_number: @client_number, balance: @balance})
 	end
 	def create_checking
-		@checking = Checking.new(@client_name, @client_number, @balance)
+		@checking 		= Checking.new({client_number: @client_number, balance: @balance})
 	end
 	def create_money_market
-		@money_market = MoneyMarket.new(@client_name, @client_number, @balance)
+		@money_market = MoneyMarket.new({client_number: @client_number, balance: @balance})
 	end
 end

@@ -3,12 +3,17 @@ require_relative '../lib/rooble.rb'
 describe Rooble do
   #acceptance test
   context "#User John Example" do
-    john_example = Client.new("John Example", 100_000, {savings: 70, checking: 30})
+    let(:john_example) {
+      Client.new({
+        client_demos: "John Example",
+        investment_cents: 100_000, 
+        balances: {savings: 70, checking: 30}
+      })
+    }
 
     it "saves #user" do
-      expect(john_example.client_name).to eq "John Example"
+      expect(john_example.client_demos).to eq "John Example"
       expect(john_example.savings.balance).to eq 70000
-      expect(john_example.balances.class).to eq Hash
       expect(john_example.client_number.class).to eq Integer
     end
     it "computes deposits and withdrawals" do

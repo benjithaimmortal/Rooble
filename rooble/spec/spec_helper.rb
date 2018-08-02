@@ -1,4 +1,6 @@
 require 'simplecov'
+require 'factory_bot'
+
 SimpleCov.start
 
 RSpec.configure do |config|
