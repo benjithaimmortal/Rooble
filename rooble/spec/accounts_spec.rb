@@ -11,6 +11,8 @@ describe Rooble do
       investment_ratio: {savings: test_percent, checking: (100-test_percent)}
     })
   end
+  let(:test_client2) { Client.new({investment_cents: 1, investment_ratio: {saving: 100}}) }
+  
 
   context "many #accounts" do
     it "gives correct percentages to each" do
@@ -20,7 +22,7 @@ describe Rooble do
   end
   context "incorrect #account_type?" do
     it ".NoSuchAccountTypeError" do
-      expect(Client.new({investment_cents: 1, investment_ratio: {saving: 100}})).to raise_error(NoSuchAccountTypeError)
+      expect(test_client2).to raise_error(NoSuchAccountTypeError)
     end
   end
   context "transaction_limit?" do
