@@ -7,35 +7,36 @@
 
 module AccountManager
 	attr_accessor :account_number, :balance
+
+#registers a new client
 	def register(args)
 		args[:investment_ratio].each do |k, v|
 			@balance = (v * args[:investment_cents]) / 100
 			new_account(k)
-			
 			show_balance
 		end
+		puts @checking.to_s
 	end
 
 	def new_account(type)
 		account_number = (rand(1000..9999))
-		begin
-			type.to_s.camelize.new({balance: balance, account_number: account_number})
-		rescue NoMethodError => nme
-			puts "Caught #{nme.to_s}"
-			raise NoSuchAccountTypeError.new("Account type #{k.to_s} is not valid. " +
-									"Valid account types: savings, checking, money_market")
+		case type
+		when :checking
+			@checking = Checking.new({balance: balance, account_number: account_number})
+		when :savings
+			@savings = Savings.new({balance: balance, account_number: account_number})
+		when :money_market
+			@money_market = MoneyMarket.new({balance: balance, account_number: account_number})
+		else
+			raise AccountTypeError.new("Account type is not valid. " +
+							"Valid account types: savings, checking, money_market")
 		end
-		
-		# case type
-		# when :checking
-		# 	Checking.new({balance: balance, account_number: account_number})
-		# when :savings
-		# 	Savings.new({balance: balance, account_number: account_number})
-		# when :money_market
-		# 	MoneyMarket.new({balance: balance, account_number: account_number})
-		# else
-		# 	raise AccountTypeError.new("Account type is not valid. " +
-		# 											"Valid account types: savings, checking, money_market")
+		# begin
+		# 	type.to_s.camelize.new({balance: balance, account_number: account_number})
+		# rescue NoMethodError => nme
+		# 	puts "Caught #{nme.to_s}"
+		# 	raise NoSuchAccountTypeError.new("Account type #{k.to_s} is not valid. " +
+		# 							"Valid account types: savings, checking, money_market")
 		# end
 	end
 

@@ -7,10 +7,12 @@ describe Rooble do
     investment_ratio: {savings: 100}
   }) }
 
+  let(:test_client2) { Client.new({investment_cents: 1, investment_ratio: {saving: 100}}) }
 
-  context "#accounts?" do
-    it "can access balances" do
-#      expect().to eq 
+
+  context "incorrect #account_type?" do
+    it ".NoSuchAccountTypeError" do
+#!      expect(test_client2).to raise_error(NoSuchAccountTypeError)
     end
   end
 end

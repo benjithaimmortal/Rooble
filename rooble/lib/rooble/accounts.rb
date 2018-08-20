@@ -1,5 +1,6 @@
 #the basic information that an account has
 class Account
+	include AccountManager
 	attr_reader	:account_number, :balance, :transaction_limit
 
 	def initialize(args)
