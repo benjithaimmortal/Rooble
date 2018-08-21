@@ -6,7 +6,14 @@ Gem::Specification.new do |s|
   s.description = "A simple-ish accounting app"
   s.authors = ["Ben Kostenbader"]
   s.email = 'benjamin.kostenbader@gmail.com'
-  s.files = ["lib/rooble.rb"]
+  s.files = [
+    "lib/rooble.rb",
+    "lib/rooble/account_manager.rb",
+    "lib/rooble/accounts.rb",
+    "lib/rooble/client.rb",
+    "lib/rooble/converter.rb",
+    "spec/"
+  ]
   s.homepage = 'https://rubygems.org/gems/rooble'
   s.license = 'MIT'
 end
