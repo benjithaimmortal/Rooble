@@ -1,20 +1,12 @@
 #the basic information that an account has
 class Account
-	include Balances
+	include AccountManager
 	def initialize(client_name, client_number, balance, transaction_limit)
 		@client_name = client_name
 		@balance = balance
 		@client_number = client_number
-		@transaction_limit = transaction_limit
-		
-		account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
-		puts "Initializing " + account_type
-
-		@account_db = {
-            client_number: @client_number,
-            client_name: @client_name,
-            balance: @balance
-        }
+		@transaction_limit = transaction_limit		
+		@account_type = self.class.to_s.gsub(/[A-Z]/) {|letter| letter = " #{letter}".downcase}.sub(" ", "")
 	end
 	attr_reader	:client_name, :balance, :client_number, :transaction_limit, :account_db
 end

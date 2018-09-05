@@ -1,10 +1,8 @@
 module Rooble
-    require_relative './rooble/viewer.rb'
+    require_relative './rooble/account_manager.rb'
     require_relative './rooble/accounts.rb'
-    require_relative './rooble/new_client.rb'
-    require_relative './rooble/users.rb'
+    require_relative './rooble/client.rb'
 end
 
-puts 'Rooble has loaded. Welcome!'
-
 class NoSuchAccountTypeError < NoMethodError; end
+class TransactionLimitError < RuntimeError; end
